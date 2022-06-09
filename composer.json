@@ -1,0 +1,48 @@
+{
+    "name": "mkaverin/laravel-comments",
+    "description": "This package provides a simple way to add comments to your Laravel application.",
+	"homepage": "https://github.com/mish-ka-mishka/laravel-comments",
+    "autoload": {
+        "psr-4": {
+            "Comments\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Comments\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael",
+            "email": "m@kaverin.ml"
+        }
+    ],
+	"extra": {
+		"laravel": {
+			"providers": [
+                "CommentsServiceProvider"
+			]
+		}
+	},
+    "require": {
+	    "php": "^7.4|^8.0",
+	    "illuminate/contracts": "^8.0|^9.0",
+	    "illuminate/support": "^8.0|^9.0",
+        "illuminate/database": "^8.0|^9.0",
+        "illuminate/http": "^8.0|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.23|^7.0",
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+	"config": {
+		"sort-packages": true
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
