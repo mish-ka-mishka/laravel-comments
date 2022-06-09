@@ -21,7 +21,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-                "CommentsServiceProvider"
+                "\\Comments\\Providers\\CommentsServiceProvider"
 			]
 		}
 	},
