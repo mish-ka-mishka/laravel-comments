@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Comment extends Model
 {
-    use SoftDeletes, HasPublicId;
+    use SoftDeletes;
+    use HasPublicId;
 
     protected $fillable = [
         'is_automatic',
