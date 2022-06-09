@@ -26,7 +26,7 @@ trait HasComments
         $comment->author()->associate($author);
         $comment->commentable()->associate($this);
         $comment->text = $text;
-        $comment->is_approved = !$this->commentHasToBeApproved($author);
+        $comment->is_approved = ! $this->commentHasToBeApproved($author);
 
         $comment->save();
 

@@ -2,7 +2,6 @@
 
 namespace Comments\Contracts;
 
-use App\Models\Comment;
 use Comment\Contracts\CommentAuthorContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

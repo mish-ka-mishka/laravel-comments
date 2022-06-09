@@ -17,7 +17,7 @@ class CommentsServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/comments.php' => config_path('comments.php'),
         ], 'config');
 
-        if (!class_exists('CreateCommentsTable')) {
+        if (! class_exists('CreateCommentsTable')) {
             $timestamp = date('Y_m_d_His', time());
 
             $this->publishes([
