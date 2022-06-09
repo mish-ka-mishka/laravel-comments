@@ -2,7 +2,6 @@
 
 namespace Comments\Contracts;
 
-use Comment\Contracts\CommentAuthorContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -18,6 +17,7 @@ use Illuminate\Support\Carbon;
  * @property string $text
  * @property bool $is_automatic
  * @property bool $is_approved
+ * @property Carbon|null $approved_at
  * @property string $approver_type
  * @property int $approver_id
  * @property Carbon|null $created_at
@@ -38,6 +38,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CommentContract whereDeletedAt($value)
  * @method static Builder|CommentContract whereId($value)
  * @method static Builder|CommentContract whereIsAutomatic($value)
+ * @method static Builder|CommentContract whereApprovedAt($value)
  * @method static Builder|CommentContract whereIsApproved($value)
  * @method static Builder|CommentContract wherePublicId($value)
  * @method static Builder|CommentContract whereText($value)

@@ -23,4 +23,13 @@ return [
     |
     */
     'comments_have_to_be_approved' => false,
+
+    /*-------------------------------------------------------------------------
+    | Comment max length
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify max length of comment text for \Comments\Http\Requests\StoreCommentRequest
+    |
+    */
+    'comment_max_length' => 1000,
 ];
