@@ -17,6 +17,12 @@ class CommentsServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/comments.php' => config_path('comments.php'),
         ], 'config');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        if (!class_exists('CreateCommentsTable')) {
+            $timestamp = date('Y_m_d_His', time());
+
+            $this->publishes([
+                __DIR__ . '/../../database/migrations/create_comments_table.php.stub' => database_path('migrations/' . $timestamp . '_create_comments_table.php'),
+            ], 'migrations');
+        }
     }
 }

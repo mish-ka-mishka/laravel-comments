@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts;
+namespace Comment\Contracts;
 
 interface CommentAuthorContract
 {

@@ -10,7 +10,11 @@ Run the following command from your project directory to add the dependency:
 composer require mkaverin/laravel-comments
 ```
 
-Then, run database migrations:
+Then, copy and run database migrations:
+
+```shell
+php artisan vendor:publish --provider="Comments\Providers\CommentsServiceProvider" --tag=migrations
+```
 
 ```shell
 php artisan migrate

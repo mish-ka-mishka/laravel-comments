@@ -2,14 +2,14 @@
 
 namespace Comments\Models;
 
+use Comments\Contracts\CommentContract;
 use Comments\Traits\HasPublicId;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * @mixin IdeHelperComment
- */
-class Comment extends Model
+class Comment extends Model implements CommentContract
 {
     use SoftDeletes;
     use HasPublicId;
@@ -22,13 +22,30 @@ class Comment extends Model
         'is_automatic' => 'bool',
     ];
 
-    public function commentable()
+    protected static function booted(): void
+    {
+        static::addGlobalScope('onlyApproved', function (Builder $builder) {
+            $builder->where('is_approved', true);
+        });
+    }
+
+    public function commentable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function author()
+    public function author(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function scopeWithUnapproved(Builder $query): Builder
+    {
+        return $query->withoutGlobalScope('onlyApproved');
+    }
+
+    public function scopeOnlyUnapproved(Builder $query): Builder
+    {
+        return $query->withUnapproved('onlyApproved')->where('is_approved', false);
     }
 }

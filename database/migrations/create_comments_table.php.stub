@@ -18,10 +18,13 @@ class CreateCommentsTable extends Migration
             $table->uuid('public_id')->unique();
 
             $table->morphs('commentable');
-            $table->morphs('author');
+            $table->nullableMorphs('author');
 
             $table->text('text');
             $table->boolean('is_automatic')->default(false);
+
+            $table->boolean('is_approved')->default(false);
+            $table->nullableMorphs('approver');
 
             $table->timestamps();
             $table->softDeletes();
